@@ -1,51 +1,20 @@
 {% extends 'layout.html' %}
-
-{% block button %}
+{% block shit %}
     <a class="add-pet-btn" href="{{url_for('add_pet')}}" alt="Add Pet">
         <i class="fas fa-plus"></i>
         Pet
     </a>
-{% endblock %}
-{% block section %}
-    <section id="pet-cards">
-        <a href="#">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
-                <h2>Name</h2>
-                <h3>6 months</h3>
-                <p>This is a great dog. The best dog in all the world.</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
-                <h2>Name</h2>
-                <h3>6 months</h3>
-                <p>This is a great dog. The best dog in all the world.</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
-                <h2>Name</h2>
-                <h3>6 months</h3>
-                <p>This is a great dog. The best dog in all the world.</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
-                <h2>Name</h2>
-                <h3>6 months</h3>
-                <p>This is a great dog. The best dog in all the world.</p>
-            </div>
-        </a>
-        <a href="#">
-            <div class="card">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
-                <h2>Name</h2>
-                <h3>6 months</h3>
-                <p>This is a great dog. The best dog in all the world.</p>
-            </div>
-        </a>
+</section>
+<section id="pet-cards">
+    {% for pet in pets %}
+    <a href="{{url_for('pet', id=pet.id)}}">
+        <div class="card">
+            <img src={{pet.url}} alt={{pet.url_tag}}>
+            <h2>{{pet.name}}</h2>
+            <h3>{{pet.age}}</h3>
+            <p>{{pet.description}}</p>
+        </div>
+    </a>
+    {% endfor %}
+
 {% endblock %}
